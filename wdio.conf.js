@@ -7,11 +7,11 @@ exports.config = {
     // ====================
     //
     //
-    // runner: 'local',
-    // hostname: 'localhost',
-    // port: 4444,
-    // path: '/wd/hub/',
-    // protocol: 'http',
+    runner: 'local',
+    hostname: 'localhost',
+    port: 4444,
+    path: '/wd/hub/',
+    protocol: 'http',
     // ==================
     // Specify Test Files
     // ==================
@@ -29,6 +29,17 @@ exports.config = {
     //
     specs: [
         './test/specs/**/*.js'
+       
+    ],
+    suites : [
+        {
+            functional: [
+                './test/specs/functional/*.js'
+            ],
+            visual: [
+                './test/specs/visual/*.js'
+            ]
+        }
     ],
     // Patterns to exclude.
     exclude: [
@@ -89,7 +100,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'debug',
+    logLevel: 'warn',
     //
     // Set specific log levels per logger
     // loggers:
@@ -129,7 +140,8 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver',
+    // services: ['chromedriver',
+    services: [
     ['image-comparison',
     // The options
     {
@@ -144,7 +156,8 @@ exports.config = {
         disableCSSAnimation: true,
         hideScrollBars: true,
         ignoreAntialiasing: true,
-        hideAlpha : true
+        hideAlpha : true,
+        logLevel: 'warn'
     }]],
     
     // Framework you want to run your specs with.
@@ -168,8 +181,9 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: [
+        "spec",
         ['mochawesome',{
-          outputDir: '.tmp',
+          outputDir: 'results/output',
           outputFileFormat: function(opts) { 
               return `results-${opts.cid}.${opts.capabilities.browserName}.json`
           }
@@ -182,17 +196,18 @@ exports.config = {
     onComplete: async function (exitCode, config, capabilities, results) {
         // merge individual test results to one single file
         const mergeResults = require('wdio-mochawesome-reporter/mergeResults')
-        mergeResults('.tmp', "results-*")
+        mergeResults('results/output', "results-*")
 
         // load the final merged result json
         const fs = require("fs");
-        const jsonPayloadRaw = fs.readFileSync(".tmp/wdio-ma-merged.json");
+        const jsonPayloadRaw = fs.readFileSync("results/output/wdio-ma-merged.json");
         const jsonPayload = JSON.parse(jsonPayloadRaw);
 
         // generate mochawesome report
         const marge = require("mochawesome-report-generator");
         await marge.create(jsonPayload, {
-            reportTitle: "HTML report"        });
+            reportTitle: "Volvo - Test"        
+        });
       },
       afterTest: async function (test, context, { error, result, duration, passed, retries }) {
         // // take a screenshot anytime a test fails and throws an error
@@ -200,8 +215,7 @@ exports.config = {
             return;
         }
         console.log ('\n Test failed - capturing screenshot')
-        await browser.saveScreenshot('./results/e2e/'+test.title+'.png')
-        
+        await browser.saveScreenshot('./results/functional/' + test.title + '.png')
       },
 
     

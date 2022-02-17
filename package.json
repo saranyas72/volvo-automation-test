@@ -20,10 +20,7 @@
         "wdio-mochawesome-reporter": "3.2.0"
     },
     "scripts": {
-        "cleanup": "rm -rf ./results && rm -rf ./mochawesome-report",
-        "wdio": "wdio run wdio.conf.js",
-        "generateMochawesome": "marge ./results/wdio-ma-merged.json --reportTitle 'My Project Results'",
-        "wdio:report": "npm run cleanup && wdio run wdio.conf.js && npm run generateMochawesome"
-    },
-    "dependencies": {}
+        "cleanup": "rm -rf ./results/* && rm -rf ./mochawesome-report/*",
+        "wdio": "wdio run wdio.conf.js"
+    }
 }

@@ -1,0 +1,72 @@
+➜  volvo git:(main) ✗ npm run wdio
+
+> webdriverio-tests@0.1.0 wdio
+> wdio run wdio.conf.js
+
+
+Execution of 4 workers started at 2022-02-17T22:55:36.177Z
+
+[0-2] RUNNING in chrome - /test/specs/functional/header.func.js
+[0-3] RUNNING in chrome - /test/specs/visual-regression/campaign.ux.js
+[0-0] RUNNING in chrome - /test/specs/functional/campaign.func.js
+[0-1] RUNNING in chrome - /test/specs/functional/footer.func.js
+[0-0] PASSED in chrome - /test/specs/functional/campaign.func.js
+[0-2] PASSED in chrome - /test/specs/functional/header.func.js
+[0-1] PASSED in chrome - /test/specs/functional/footer.func.js
+[0-3] PASSED in chrome - /test/specs/visual-regression/campaign.ux.js
+
+ "spec" Reporter:
+------------------------------------------------------------------
+[chrome 98.0.4758.80 linux #0-0] Running: chrome (v98.0.4758.80) on linux
+[chrome 98.0.4758.80 linux #0-0] Session ID: 50217dfa9b12a8c6f4a6a6b1eccedc07
+[chrome 98.0.4758.80 linux #0-0]
+[chrome 98.0.4758.80 linux #0-0] » /test/specs/functional/campaign.func.js
+[chrome 98.0.4758.80 linux #0-0] Volvo Campaign page functional tests
+[chrome 98.0.4758.80 linux #0-0]    ✓ should show Intro video
+[chrome 98.0.4758.80 linux #0-0]    ✓ should show testimonial videos
+[chrome 98.0.4758.80 linux #0-0]    ✓ should show learn more about car safety link and redirect on click
+[chrome 98.0.4758.80 linux #0-0]    ✓ should open model detail page when clicking first model in carousel
+[chrome 98.0.4758.80 linux #0-0]    ✓ should open model detail page when clicking on 'Learn' link for first model in carousel
+[chrome 98.0.4758.80 linux #0-0]    ✓ should open model detail page when clicking on 'Shop' link for first model in carousel
+[chrome 98.0.4758.80 linux #0-0]    ✓ should display recharge page on Recharge link click
+[chrome 98.0.4758.80 linux #0-0]    ✓ should display mild hybrid car detail page on the link click
+[chrome 98.0.4758.80 linux #0-0]    ✓ verify the cta button should be functional from ImageWithText component
+[chrome 98.0.4758.80 linux #0-0]
+[chrome 98.0.4758.80 linux #0-0] 9 passing (26.3s)
+------------------------------------------------------------------
+[chrome 98.0.4758.80 linux #0-2] Running: chrome (v98.0.4758.80) on linux
+[chrome 98.0.4758.80 linux #0-2] Session ID: 40ef12ad6fb979f73c06ef312c03c927
+[chrome 98.0.4758.80 linux #0-2]
+[chrome 98.0.4758.80 linux #0-2] » /test/specs/functional/header.func.js
+[chrome 98.0.4758.80 linux #0-2] header functional tests
+[chrome 98.0.4758.80 linux #0-2]    ✓ should open and close side menu
+[chrome 98.0.4758.80 linux #0-2]    ✓ should show our cars dropdown
+[chrome 98.0.4758.80 linux #0-2]    ✓ should navigate to About Volvo -> Sustainability
+[chrome 98.0.4758.80 linux #0-2]
+[chrome 98.0.4758.80 linux #0-2] 3 passing (14.1s)
+------------------------------------------------------------------
+[chrome 98.0.4758.80 linux #0-1] Running: chrome (v98.0.4758.80) on linux
+[chrome 98.0.4758.80 linux #0-1] Session ID: cb6d97bb9696d95219483bfc9ecb4e5e
+[chrome 98.0.4758.80 linux #0-1]
+[chrome 98.0.4758.80 linux #0-1] » /test/specs/functional/footer.func.js
+[chrome 98.0.4758.80 linux #0-1] footer functional tests
+[chrome 98.0.4758.80 linux #0-1]    ✓ should display copyright text
+[chrome 98.0.4758.80 linux #0-1]    ✓ should have footer links  - cookies
+[chrome 98.0.4758.80 linux #0-1]    ✓ should have footer link  - legal
+[chrome 98.0.4758.80 linux #0-1]    ✓ should have footer link  - privacy
+[chrome 98.0.4758.80 linux #0-1]    ✓ should have footer link  - social media
+[chrome 98.0.4758.80 linux #0-1]    ✓ should have footer link  - tell us
+[chrome 98.0.4758.80 linux #0-1]
+[chrome 98.0.4758.80 linux #0-1] 6 passing (15.3s)
+------------------------------------------------------------------
+[chrome 98.0.4758.80 linux #0-3] Running: chrome (v98.0.4758.80) on linux
+[chrome 98.0.4758.80 linux #0-3] Session ID: a5e99ecc22903cc880428c6ca1d5bcf8
+[chrome 98.0.4758.80 linux #0-3]
+[chrome 98.0.4758.80 linux #0-3] » /test/specs/visual-regression/campaign.ux.js
+[chrome 98.0.4758.80 linux #0-3] Volvo Campaign page visual regression test
+[chrome 98.0.4758.80 linux #0-3]    ✓ should verify the campaign page elements in full page view
+[chrome 98.0.4758.80 linux #0-3]
+[chrome 98.0.4758.80 linux #0-3] 1 passing (1m 15.2s)
+
+
+Spec Files:	 4 passed, 4 total (100% completed) in 00:01:18
