@@ -1,9 +1,6 @@
 # volvo-automation-test
 
-This repo contains a framework where you can write e2e and visual regression tests using webdriver IO.
-
-## Setup Instructions
-
+This repo contains a framework where you can write functional and visual regression tests using webdriver IO.
 ### Pre requisites
 
 1. node (>v12.x)
@@ -64,4 +61,3 @@ E2E tests can be added to test/specs/functional
 | 17    | should have footer link  - social media                                                 |                  | Functional |
 | 18    | should have footer link  - tell us                                                      |                  | Functional |
 | 19    | should verify the campaign page elements in full page view                              | campaign.ux.js   | Visual     |
-|-------|-----------------------------------------------------------------------------------------|------------------|------------|
