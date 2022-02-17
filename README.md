@@ -43,7 +43,6 @@ E2E tests can be added to test/specs/functional
 
 ### Test cases covered
 
-|-------|-----------------------------------------------------------------------------------------|------------------|------------|
 | Test# | Test Case                                                                               | Test Suite       | Test type  |
 |-------|-----------------------------------------------------------------------------------------|------------------|------------|
 | 1     | should show Intro video                                                                 | Campaign.func.js | Functional |
@@ -55,17 +54,14 @@ E2E tests can be added to test/specs/functional
 | 7     | should display recharge page on Recharge link click                                     |                  | Functional |
 | 8     | should display mild hybrid car detail page on the link click                            |                  | Functional |
 | 9     | verify the cta button should be functional from ImageWithText component                 |                  | Functional |
-|-------|-----------------------------------------------------------------------------------------|------------------|------------|
 | 10    | should open and close side menu                                                         | Header.func.js   | Functional |
 | 11    | should show our cars dropdown                                                           |                  | Functional |
 | 12    | should navigate to About Volvo -> Sustainability                                        |                  | Functional |
-|-------|-----------------------------------------------------------------------------------------|------------------|------------|
 | 13    | should display copyright text                                                           | Footer.func.js   | Functional |
 | 14    | should have footer links  - cookies                                                     |                  | Functional |
 | 15    | should have footer link  - legal                                                        |                  | Functional |
 | 16    | should have footer link  - privacy                                                      |                  | Functional |
 | 17    | should have footer link  - social media                                                 |                  | Functional |
 | 18    | should have footer link  - tell us                                                      |                  | Functional |
-|-------|-----------------------------------------------------------------------------------------|------------------|------------|
 | 19    | should verify the campaign page elements in full page view                              | campaign.ux.js   | Visual     |
 |-------|-----------------------------------------------------------------------------------------|------------------|------------|
