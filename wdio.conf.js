@@ -1,4 +1,5 @@
 const { join } = require('path');
+const fs = require("fs");
 
 exports.config = {
     //
@@ -199,7 +200,6 @@ exports.config = {
         mergeResults('results/output', "results-*")
 
         // load the final merged result json
-        const fs = require("fs");
         const jsonPayloadRaw = fs.readFileSync("results/output/wdio-ma-merged.json");
         const jsonPayload = JSON.parse(jsonPayloadRaw);
 
@@ -213,6 +213,9 @@ exports.config = {
         // // take a screenshot anytime a test fails and throws an error
         if (passed) {
             return;
+        }
+        if (!fs.existsSync('./results/functional/')){
+            fs.mkdirSync('./results/functional/', { recursive: true });
         }
         console.log ('\n Test failed - capturing screenshot')
         await browser.saveScreenshot('./results/functional/' + test.title + '.png')
