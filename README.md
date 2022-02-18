@@ -6,10 +6,17 @@ This repo contains a framework where you can write functional and visual regress
 [wdio-mochawesome-reporter](https://github.com/fijijavis/wdio-mochawesome-reporter) for generating reports.
 
 ### Pre requisites
-1. node (>v14.x)
-2. docker
+1. node (>v14.x)   
+Follow instructions to install nvm [here](https://github.com/nvm-sh/nvm#install--update-script)
+    ```bash
+    # install node version
+    nvm install 14.17.0
+    # set version as default
+    nvm alias default 14.17.0
+    ```
+2. docker  
 Follow instructions [here](https://docs.docker.com/desktop/#download-and-install) to install Docker desktop for Mac/Windows.   
-3. docker-compose
+3. docker-compose  
 Follow instruction [here](https://docs.docker.com/compose/install/#install-compose) to install Docker compose. If you installed Docker desktop in the previous step then it includes docker compose as well.
 ### How to run tests
 ```bash
