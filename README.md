@@ -1,19 +1,23 @@
 # volvo-automation-test
+This repo contains a framework where you can write functional and visual regression tests using webdriver IO. 
 
-This repo contains a framework where you can write functional and visual regression tests using webdriver IO.
+[wdio-image-comparison-service](https://github.com/wswebcreation/wdio-image-comparison-service) for visual regression test.
+
+[wdio-mochawesome-reporter](https://github.com/fijijavis/wdio-mochawesome-reporter) for generating reports.
+
 ### Pre requisites
-
-1. node (>v12.x)
-2. docker 
-Follow instructions (here)[https://docs.docker.com/desktop/#download-and-install] to install Docker desktop for Mac/Windows.   
+1. node (>v14.x)
+2. docker
+Follow instructions [here](https://docs.docker.com/desktop/#download-and-install) to install Docker desktop for Mac/Windows.   
 3. docker-compose
-Follow instruction (here)[https://docs.docker.com/compose/install/#install-compose] to install Docker compose. If you installed Docker desktop in the previous step then it includes docker compose as well.
+Follow instruction [here](https://docs.docker.com/compose/install/#install-compose) to install Docker compose. If you installed Docker desktop in the previous step then it includes docker compose as well.
 ### How to run tests
-
 ```bash
 # clone the repo
 git clone git@github.com:saranyas72/volvo-automation-test.git
-# in the root directory run npm install
+# switch to root directoy
+cd  volvo-automation-test
+# run npm install
 npm install
 # run docker-compose to set up selenium hub with nodes for chrome, edge and firefox in the background
 docker-compose up -d
@@ -21,23 +25,43 @@ docker-compose up -d
 npm run wdio
 ```
 
----
-**NOTE**
+- Each individual spec file is run in parallel. The output below shows 4 workers running the 4 spec files 
+<img src="./sample-output.png" width="650" height="350"/>
 
-To run inidividual spec files run
+- After test run, generates a report under mochawesome-report folder. Sample below
+<img src="./sample-report.png" width="650" height="350"/>
 
+- Sample log from a full test run can be found in [sample-run.log](./sample-run.log)
+
+- To run inidividual spec files run
 ```bash
 npx wdio run wdio.conf.js --spec ./test/specs/functional/footer.func.js
 ```
 
----
+### Repo structure
 
-### How to add new tests
-
-Visual regression tests can be added to test/specs/visual-regression
-<br/>
-E2E tests can be added to test/specs/functional
-
+```
+├── test
+│   ├── assets
+│   │   └── baseline-img # contains baseline images for visual regression tests
+│   │       └── desktop_chrome
+│   │           └── test-full-page-view--1050x978.png
+│   ├── helpers
+│   │   └── index.js
+│   ├── pageobjects # page object model classes
+│   │   ├── campaign.js
+│   │   ├── footer.js
+│   │   ├── header.js
+│   │   └── page.js
+│   └── specs
+│       ├── functional # contains functional specs
+│       │   ├── campaign.func.js
+│       │   ├── footer.func.js
+│       │   └── header.func.js
+│       └── visual-regression # contains visual regression specs
+│           └── campaign.ux.js
+└── wdio.conf.js # webdriver IO config
+```
 ### Test cases covered
 
 | Test# | Test Case                                                                               | Test Suite       | Test type  |
